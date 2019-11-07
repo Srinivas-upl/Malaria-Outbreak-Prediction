@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<h1>Symptoms <small>Predicts Malaria according to the symptoms</small></h1>
+<hr>
+
+{% from "/includes/_render_field.html" import render_field, render_radio_fields %}
+<div class="container theme-showcase" role="main">
+      <div class="well bs-component">
+       
+            <form class="form-horizontal", method="POST" action="/symptoms">
+                {{ render_field(form.email, placeholder=form.email.label.text) }}
+                {{ render_field(form.name, placeholder=form.name.label.text) }}
+                {{ render_radio_fields(form.fever) }}
+                {{ render_radio_fields(form.abdpain) }}
+                {{ render_radio_fields(form.vomit) }}
+                {{ render_radio_fields(form.stool) }}
+                {{ render_radio_fields(form.muspain) }}
+                {{ render_radio_fields(form.sweating) }}
+                {{ render_radio_fields(form.chills) }}
+                {{ render_radio_fields(form.cough) }}
+                <input type="submit" class="btn btn-primary" value="Submit">
+          </form>
+   
+  </div>
+</div>
+{% endblock %}

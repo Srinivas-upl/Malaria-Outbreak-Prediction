@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1>Predict Malaria outbreak <small>Predicts Malaria according to country</small></h1>
+<hr>
+
+{% from "/includes/_render_field.html" import render_field, render_radio_fields %}
+<div class="container theme-showcase" role="main">
+      <div class="well bs-component">
+       
+            <form class="form-horizontal", method="POST" action="/predict">
+                {{ render_field(conform.country, placeholder=conform.country.label.text) }}
+             
+           
+                <input type="submit" class="btn btn-primary" value="Submit">
+          </form>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Country</th>
+                <th scope="col">Score</th>
+                <th scope="col">Prevention Drugs</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Brazil</td>
+                <td>2</td>
+                <td>Atovaquonone-proguanil</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Greece</td>
+                <td>1</td>
+                <td>mosquito avoidance only</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Malaysia</td>
+                <td>2</td>
+                <td>doxycycline,mefloquine</td>
+              </tr>
+              <tr>
+                  <th scope="row">3</th>
+                  <td>Nigeria</td>
+                  <td>4</td>
+                  <td>tafenoquine</td>
+                </tr>
+            </tbody>
+          </table>
+   
+  </div>
+</div>
+ {% endblock %}
